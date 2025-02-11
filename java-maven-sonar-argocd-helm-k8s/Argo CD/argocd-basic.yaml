@@ -8,3 +8,4 @@ spec:
   server:
     service:
       type: NodePort
+      nodePort: 32080  # Fixed NodePort
