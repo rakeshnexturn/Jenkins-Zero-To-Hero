@@ -14,7 +14,9 @@ pipeline {
     stage('Checkout') {
       steps {
         sh 'echo pass'
-        //git branch: 'main', url: 'https://github.com/iam-veeramalla/Jenkins-Zero-To-Hero.git'
+        git branch: 'main', 
+            url: 'https://github.com/rakeshnexturn/Jenkins-Zero-To-Hero.git',
+            credentialsId: 'github'  // Add your GitHub credentials ID here
       }
     }
     stage('Build and Test') {
