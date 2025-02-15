@@ -53,10 +53,10 @@ pipeline {
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
-                    git config user.email "rakesh.vssut2022.com"
-                    git config user.name "Rakesh Kumar Sahu"
                     git clone https://github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}.git
                     cd ${GIT_REPO_NAME}
+                    git config user.email "rakesh.vssut2022.com"
+                    git config user.name "Rakesh Kumar Sahu"
                     BUILD_NUMBER=${BUILD_NUMBER}
                     sed -i "s|image: rakeshvssut/ultimate-cicd:[0-9]*|image: rakeshvssut/ultimate-cicd:${BUILD_NUMBER}|g" deployment.yml
                     git add deployment.yml
